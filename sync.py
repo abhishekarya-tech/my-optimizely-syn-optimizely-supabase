@@ -2,7 +2,7 @@ import os
 import requests
 from supabase import create_client
 
-PROJECT_ID = "5136939842535424"
+PROJECT_ID = "5790171803680768"
 OPTIMIZELY_TOKEN = os.environ["OPTIMIZELY_TOKEN"]
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
