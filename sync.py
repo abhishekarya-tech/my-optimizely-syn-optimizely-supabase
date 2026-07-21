@@ -18,6 +18,7 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def get_all_experiments(project_id):
     url = "https://api.optimizely.com/v2/experiments"
+ 
 
     headers = {
         "Authorization": f"Bearer {OPTIMIZELY_TOKEN}"
