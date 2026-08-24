@@ -15,7 +15,7 @@ OUTPUT_FILE = "august_2026_experiments.xlsx"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
-def get_june_experiments():
+def get_august_experiments():
     response = (
         supabase
         .table(TABLE_NAME)
@@ -47,7 +47,7 @@ def make_excel_safe(value):
 
 def export_to_excel(rows):
     workbook = xlsxwriter.Workbook(OUTPUT_FILE)
-    worksheet = workbook.add_worksheet("June 2026 Experiments")
+    worksheet = workbook.add_worksheet("August 2026 Experiments")
 
     header_format = workbook.add_format(
         {
@@ -212,7 +212,7 @@ def export_to_excel(rows):
 
 
 if __name__ == "__main__":
-    experiments = get_june_experiments()
+    experiments = get_august_experiments()
     export_to_excel(experiments)
 
     print(
