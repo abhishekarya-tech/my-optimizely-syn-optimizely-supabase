@@ -21,12 +21,12 @@ def get_june_experiments():
         .table(TABLE_NAME)
         .select("*")
         .or_(
-            "and(start_date.gte.2026-07-01T00:00:00Z,"
-            "start_date.lt.2026-08-01T00:00:00Z),"
-            "and(start_date.lt.2026-07-01T00:00:00Z,"
-            "end_date.gte.2026-07-01T00:00:00Z),"
+            "and(start_date.gte.2026-08-01T00:00:00Z,"
+            "start_date.lt.2026-09-01T00:00:00Z),"
+            "and(start_date.lt.2026-08-01T00:00:00Z,"
+            "end_date.gte.2026-08-01T00:00:00Z),"
             "and(status.eq.running,"
-            "start_date.lt.2026-07-01T00:00:00Z)"
+            "start_date.lt.2026-08-01T00:00:00Z)"
         )
         .order("start_date")
         .execute()
