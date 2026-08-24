@@ -10,7 +10,7 @@ SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 
 TABLE_NAME = "optimizely_experiments"
-OUTPUT_FILE = "june_2026_experiments.xlsx"
+OUTPUT_FILE = "august_2026_experiments.xlsx"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
