@@ -10,23 +10,23 @@ SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 
 TABLE_NAME = "optimizely_experiments"
-OUTPUT_FILE = "august_2026_experiments.xlsx"
+OUTPUT_FILE = "september_2026_experiments.xlsx"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
-def get_august_experiments():
+def get_september_experiments():
     response = (
         supabase
         .table(TABLE_NAME)
         .select("*")
         .or_(
-            "and(start_date.gte.2026-08-01T00:00:00Z,"
-            "start_date.lt.2026-09-01T00:00:00Z),"
-            "and(start_date.lt.2026-08-01T00:00:00Z,"
-            "end_date.gte.2026-08-01T00:00:00Z),"
+            "and(start_date.gte.2026-09-01T00:00:00Z,"
+            "start_date.lt.2026-10-01T00:00:00Z),"
+            "and(start_date.lt.2026-09-01T00:00:00Z,"
+            "end_date.gte.2026-09-01T00:00:00Z),"
             "and(status.eq.running,"
-            "start_date.lt.2026-08-01T00:00:00Z)"
+            "start_date.lt.2026-09-01T00:00:00Z)"
         )
         .order("start_date")
         .execute()
@@ -47,7 +47,7 @@ def make_excel_safe(value):
 
 def export_to_excel(rows):
     workbook = xlsxwriter.Workbook(OUTPUT_FILE)
-    worksheet = workbook.add_worksheet("August 2026 Experiments")
+    worksheet = workbook.add_worksheet("September 2026 Experiments")
 
     header_format = workbook.add_format(
         {
@@ -212,7 +212,7 @@ def export_to_excel(rows):
 
 
 if __name__ == "__main__":
-    experiments = get_august_experiments()
+    experiments = get_september_experiments()
     export_to_excel(experiments)
 
     print(
